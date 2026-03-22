@@ -3,9 +3,10 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from models import db, User, FoodPost
 
-app = Flask(__name__, static_folder='.', static_url_path='')
+app = Flask(__name__, static_folder='../', static_url_path='')
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+# Use /tmp for SQLite on Vercel as the root is read-only
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)

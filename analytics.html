@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact Tracking & Analytics | AnnSetu</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="analytics.css">
+</head>
+<body class="bg-light dashboard-body">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i> Ann<span style="color: var(--primary-green);">Setu</span>
+            </a>
+            <div class="nav-right" style="display:flex; align-items:center;">
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Fresh+Bakers&background=FF7B00&color=fff" alt="Profile">
+                    <span style="color: var(--text-dark); font-weight: 600;">Fresh Bakers</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pt-100 pb-5">
+        
+        <!-- Header -->
+        <div class="analytics-header mb-4">
+            <div>
+                <h2 style="display:flex; gap:0.5rem; align-items:center;"><i class="fa-solid fa-chart-pie text-orange"></i> Impact & Analytics</h2>
+                <p class="text-light" style="margin-top:0.3rem;">Track your contributions and explore community-wide trends.</p>
+            </div>
+            
+            <div class="tab-toggles">
+                <button class="nav-tab active" data-target="personalTab"><i class="fa-solid fa-user"></i> My Impact</button>
+                <button class="nav-tab" data-target="communityTab"><i class="fa-solid fa-globe"></i> Community</button>
+            </div>
+        </div>
+
+        <!-- Personal Impact Tab -->
+        <div id="personalTab" class="tab-content active">
+            <!-- Gamification & Tax -->
+            <div class="flex-row mb-4">
+                <div class="card flex-2 brand-card gold-level">
+                    <div class="badge-icon"><i class="fa-solid fa-medal"></i></div>
+                    <div class="badge-info">
+                        <h3>Gold Donor Status</h3>
+                        <p>Incredible! You are in the top 5% of providers in your area.</p>
+                        <div class="progress-container mt-2">
+                            <div class="progress-bar bg-white" style="width: 80%;"></div>
+                        </div>
+                        <span class="text-xs text-uppercase mt-1" style="opacity:0.9; display:block; font-weight:600;">200 meals until Platinum Level</span>
+                    </div>
+                </div>
+                
+                <div class="card flex-1 tax-card text-center" style="display:flex; flex-direction:column; justify-content:center;">
+                    <h3 class="mb-2" style="font-size:1.4rem; color:var(--text-dark); display:flex; align-items:center; justify-content:center; gap:0.6rem;">
+                        <i class="fa-solid fa-file-invoice dollar-icon"></i> Tax & Compliance
+                    </h3>
+                    <p class="text-sm text-light mb-3">Generate your 80G compliant donation report.</p>
+                    <button class="btn btn-outline-green w-100 mt-2" style="justify-content:center;"><i class="fa-solid fa-download"></i> Download 2026 Report</button>
+                </div>
+            </div>
+
+            <!-- Provider Metrics -->
+            <h3 class="section-title-sm mb-3 mt-4" style="margin-left: 0.5rem;">All-Time Impact Statistics</h3>
+            <div class="metrics-grid mb-5">
+                <div class="metric-card">
+                    <div class="m-icon icon-orange"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div class="m-data">
+                        <h4>1,250 <span>kg</span></h4>
+                        <p>Food Saved</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="m-icon icon-green"><i class="fa-solid fa-users"></i></div>
+                    <div class="m-data">
+                        <h4>3,500</h4>
+                        <p>Meals Provided</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="m-icon icon-blue"><i class="fa-solid fa-cloud"></i></div>
+                    <div class="m-data">
+                        <h4>450 <span>kg</span></h4>
+                        <p>CO₂ Prevented</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="m-icon icon-purple"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                    <div class="m-data">
+                        <h4>₹25,000</h4>
+                        <p>Monetary Equivalent</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Sharing -->
+            <div class="social-share-card card mt-4">
+                <div class="milestone-visual text-center">
+                    <div class="confetti-icon"><i class="fa-solid fa-champagne-glasses text-orange"></i></div>
+                    <h3 style="font-size: 1.8rem;">🎉 3,500 Meals Rescued!</h3>
+                    <p class="text-light text-sm mt-1">Fresh Bakers has officially provided 3,500 meals through AnnSetu.</p>
+                </div>
+                <div class="share-buttons mt-4">
+                    <button class="btn btn-social btn-facebook"><i class="fa-brands fa-facebook-f"></i> Share</button>
+                    <button class="btn btn-social btn-twitter"><i class="fa-brands fa-x-twitter"></i> Tweet</button>
+                    <button class="btn btn-social btn-linkedin"><i class="fa-brands fa-linkedin-in"></i> Post</button>
+                    <button class="btn btn-social btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Send</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Tab -->
+        <div id="communityTab" class="tab-content">
+            
+            <div class="community-header card bg-green-light mb-4" style="padding: 2.5rem; border-radius: 20px;">
+                <div class="flex-between">
+                    <div>
+                        <h2 class="text-green" style="font-size: 2.2rem; display:flex; gap:0.6rem; align-items:center;"><i class="fa-solid fa-city"></i> Pune City Hub</h2>
+                        <p class="text-dark mt-1" style="font-size:1.1rem;">Collective impact of all platform providers and volunteers.</p>
+                    </div>
+                    <div class="text-right">
+                        <h2 class="text-dark" style="font-size: 3rem; margin-bottom:0.2rem;">45,000+</h2>
+                        <span class="text-sm text-light text-uppercase font-weight-bold" style="letter-spacing:1px;">Meals Rescued This Month</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-layout-comm mt-4">
+                <!-- Chart -->
+                <div class="card flex-2">
+                    <h3 class="section-title-sm mb-4"><i class="fa-solid fa-chart-line text-orange"></i> Monthly Rescue Trends</h3>
+                    <div class="chart-container" style="position: relative; height:320px; width:100%">
+                        <canvas id="impactChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Top Contributors -->
+                <div class="card flex-1">
+                    <h3 class="section-title-sm mb-4"><i class="fa-solid fa-crown text-orange"></i> Top Ecosystem Partners</h3>
+                    <div class="contributor-list">
+                        <div class="c-item">
+                            <span class="c-rank text-orange">1</span>
+                            <div class="c-info">
+                                <strong>Taj Gateway</strong>
+                                <span>12,000 Meals</span>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <span class="c-rank text-gray">2</span>
+                            <div class="c-info">
+                                <strong>Fresh Bakers</strong>
+                                <span>3,500 Meals</span>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <span class="c-rank text-orange-light">3</span>
+                            <div class="c-info">
+                                <strong>City Supermarket</strong>
+                                <span>2,100 Meals</span>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <span class="c-rank" style="color:#A0AEC0;">4</span>
+                            <div class="c-info">
+                                <strong>Spice Kitchen</strong>
+                                <span>1,500 Meals</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receivers Impact View (A quick summary) -->
+            <div class="card mt-4 p-4">
+                <h3 class="section-title-sm mb-3"><i class="fa-solid fa-heart-pulse text-green"></i> Local Receiver Health Impact</h3>
+                <div class="metrics-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="metric-card bg-gray-light" style="box-shadow:none; border:1px solid #E2E8F0; padding:1.5rem; text-align:center;">
+                        <h4 class="text-dark" style="font-size: 2rem; margin-bottom: 0.2rem;">2,100</h4>
+                        <span class="text-sm text-light font-weight-bold">Families Fed (Monthly)</span>
+                    </div>
+                    <div class="metric-card bg-gray-light" style="box-shadow:none; border:1px solid #E2E8F0; padding:1.5rem; text-align:center;">
+                        <h4 class="text-green" style="font-size: 2rem; margin-bottom: 0.2rem;">85M</h4>
+                        <span class="text-sm text-light font-weight-bold">Calories Distributed</span>
+                    </div>
+                    <div class="metric-card bg-gray-light" style="box-shadow:none; border:1px solid #E2E8F0; padding:1.5rem; text-align:center;">
+                        <h4 class="text-dark" style="font-size: 2rem; margin-bottom: 0.2rem;">High</h4>
+                        <span class="text-sm text-light font-weight-bold">Avg. Nutritional Density</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="analytics.js"></script>
+</body>
+</html>

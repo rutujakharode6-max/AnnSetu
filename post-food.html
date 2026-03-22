@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Available Food | AnnSetu</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="post-food.css">
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i> Ann<span>Setu</span>
+            </a>
+            <div class="nav-right" style="display:flex; align-items:center;">
+                <a href="provider-dashboard.html" class="btn-nav" style="border: 1px solid var(--text-light); border-radius: 50px; padding: 0.5rem 1.2rem; color: var(--text-dark); text-decoration: none; font-weight: 500;">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container pt-100">
+        <div class="form-wrapper">
+            <div class="form-header text-center">
+                <h2>Post Available Food</h2>
+                <p>Provide details about the food so we can match it with the right receiver quickly.</p>
+            </div>
+
+            <form id="detailedFoodForm" class="detailed-form">
+                
+                <!-- Section 1: Food Details -->
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-solid fa-utensils"></i> Food Details</h3>
+                    
+                    <div class="form-group">
+                        <label>Category *</label>
+                        <div class="category-grid">
+                            <label class="category-card">
+                                <input type="radio" name="category" value="cooked" required>
+                                <div class="card-content">
+                                    <i class="fa-solid fa-bowl-rice"></i>
+                                    <span>Cooked Meals</span>
+                                </div>
+                            </label>
+                            <label class="category-card">
+                                <input type="radio" name="category" value="raw">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-carrot"></i>
+                                    <span>Raw Ingredients</span>
+                                </div>
+                            </label>
+                            <label class="category-card">
+                                <input type="radio" name="category" value="baked">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-bread-slice"></i>
+                                    <span>Baked Goods</span>
+                                </div>
+                            </label>
+                            <label class="category-card">
+                                <input type="radio" name="category" value="packaged">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-box-open"></i>
+                                    <span>Packaged Items</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group flex-2">
+                            <label>Title / Description *</label>
+                            <input type="text" class="form-control" placeholder="e.g. 50 Plates of Veg Biryani" required>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label>Packaging Status *</label>
+                            <div class="toggle-switch-container">
+                                <input type="radio" id="packed" name="packaging" value="packed" checked>
+                                <label for="packed" class="toggle-btn">Packed</label>
+                                <input type="radio" id="unpacked" name="packaging" value="unpacked">
+                                <label for="unpacked" class="toggle-btn">Unpacked/Bulk</label>
+                                <div class="toggle-slider"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label>Quantity *</label>
+                            <input type="number" class="form-control" placeholder="e.g. 50" min="1" required>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label>Unit *</label>
+                            <select class="form-control" required>
+                                <option value="servings">Servings / Plates</option>
+                                <option value="kg">Kilograms (Kg)</option>
+                                <option value="liters">Liters (L)</option>
+                                <option value="items">Individual Items</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Condition & Quality -->
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-regular fa-clock"></i> Condition & Media</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label>Freshness Indicator</label>
+                            <div class="freshness-slider">
+                                <input type="range" min="1" max="3" value="3" class="slider" id="freshnessRange">
+                                <div class="slider-labels">
+                                    <span>Needs Immediate Consumption</span>
+                                    <span>Good for 1-2 Days</span>
+                                    <span>Very Fresh</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label>Expiration / Consume By *</label>
+                            <input type="datetime-local" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label>Upload Photos</label>
+                        <div class="file-upload-wrapper" id="dropZone">
+                            <input type="file" id="photoUpload" multiple accept="image/*" class="file-input">
+                            <div class="upload-content">
+                                <i class="fa-solid fa-cloud-arrow-up cloud-icon"></i>
+                                <h4>Drag & Drop photos here</h4>
+                                <p>or click to browse from your device</p>
+                            </div>
+                        </div>
+                        <div id="previewContainer" class="preview-container"></div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Logistics & Safety -->
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-solid fa-truck-fast"></i> Logistics & Safety</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group flex-1">
+                            <label>Pickup Time Window *</label>
+                            <div class="time-window">
+                                <input type="time" class="form-control" required>
+                                <span>to</span>
+                                <input type="time" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group flex-2">
+                            <label>Allergen Warnings & Tags</label>
+                            <div class="tags-container" id="allergenTags">
+                                <span class="tag" data-val="nuts">Contains Nuts</span>
+                                <span class="tag" data-val="dairy">Dairy</span>
+                                <span class="tag" data-val="gluten">Gluten</span>
+                                <span class="tag" data-val="vegan">Vegan</span>
+                                <span class="tag" data-val="vegetarian">Vegetarian</span>
+                                <span class="tag" data-val="halal">Halal</span>
+                            </div>
+                            <!-- hidden input to store selected tags -->
+                            <input type="hidden" id="selectedTags" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label>Special Instructions</label>
+                        <textarea class="form-control" rows="3" placeholder="E.g., Please bring your own large containers. Food needs to be refrigerated immediately upon pickup."></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit Area -->
+                <div class="form-actions-main">
+                    <a href="provider-dashboard.html" class="btn btn-outline" style="text-decoration: none;">Cancel</a>
+                    <button type="submit" class="btn btn-primary submit-btn-main">
+                        <i class="fa-solid fa-clipboard-check"></i> Publish Listing
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="post-food.js"></script>
+</body>
+</html>

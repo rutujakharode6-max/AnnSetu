@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Dashboard | AnnSetu</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="volunteer-dashboard.css">
+</head>
+<body class="bg-light dashboard-body">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i> Ann<span style="color: var(--primary-green);">Setu</span>
+            </a>
+            <div class="nav-right" style="display:flex; align-items:center;">
+                <div class="user-profile" style="background: rgba(255, 123, 0, 0.1);">
+                    <img src="https://ui-avatars.com/api/?name=Rahul+D&background=FF7B00&color=fff" alt="Profile">
+                    <span style="color: var(--primary-orange); font-weight: 700;">Volunteer</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container pt-100 pb-5">
+        
+        <!-- Header Banner & Stats -->
+        <div class="volunteer-banner mb-4">
+            <div class="banner-text">
+                <h2>Welcome back, <span>Rahul</span>! <i class="fa-solid fa-hand-peace" style="color: #FFD43B;"></i></h2>
+                <p>You're ready to hit the road. Let's save some food today!</p>
+            </div>
+            <div class="banner-stats">
+                <div class="v-stat">
+                    <div class="icon-circle icon-orange"><i class="fa-solid fa-gauge-high"></i></div>
+                    <div>
+                        <h4 id="mileageCounter">124 km</h4>
+                        <span>Total Mileage</span>
+                    </div>
+                </div>
+                <div class="v-stat">
+                    <div class="icon-circle icon-green"><i class="fa-solid fa-route"></i></div>
+                    <div>
+                        <h4>42</h4>
+                        <span>Deliveries</span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-white" id="certBtn"><i class="fa-solid fa-award"></i> View Certificate</button>
+            </div>
+        </div>
+
+        <div class="grid-layout">
+            <!-- Left Column: Routes & Requests -->
+            <div class="left-col">
+                
+                <!-- Active Optimized Route -->
+                <div class="card mb-4 route-card">
+                    <div class="card-header-flex">
+                        <h3 class="section-title-sm" style="border:none; margin:0;"><i class="fa-solid fa-map-location-dot text-green"></i> Active Smart Route</h3>
+                        <span class="badge badge-green">Optimized for Speed</span>
+                    </div>
+                    
+                    <div class="route-map mt-3">
+                        <div class="poly-line"></div>
+                        <div class="route-stop">
+                            <div class="stop-marker bg-orange"><i class="fa-solid fa-store"></i></div>
+                            <div class="stop-info">
+                                <h5>Pickup 1: Fresh Bakers</h5>
+                                <p>50 Pastries • Pick up by 4:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="route-stop">
+                            <div class="stop-marker bg-orange"><i class="fa-solid fa-store"></i></div>
+                            <div class="stop-info">
+                                <h5>Pickup 2: Spice Kitchen</h5>
+                                <p>20 Biryani Plates • Pick up by 4:15 PM</p>
+                            </div>
+                        </div>
+                        <div class="route-stop">
+                            <div class="stop-marker bg-green"><i class="fa-solid fa-building-ngo"></i></div>
+                            <div class="stop-info">
+                                <h5>Drop-off: City Shelter</h5>
+                                <p>Deliver both packages • Open till 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="route-summary mt-4">
+                        <div class="rs-item"><i class="fa-regular fa-clock text-orange"></i> Est. Time: <strong>28 mins</strong></div>
+                        <div class="rs-item"><i class="fa-solid fa-road text-orange"></i> Total Dist: <strong>6.2 km</strong></div>
+                        <button class="btn btn-green w-100 ml-auto" style="flex:1;"><i class="fa-solid fa-location-arrow"></i> Start Navigation</button>
+                    </div>
+                </div>
+
+                <!-- Available Delivery Requests -->
+                <div class="section-title mb-3">
+                    <h3 style="font-size: 1.3rem;">Available Delivery Requests</h3>
+                    <p class="text-light text-sm" style="margin-top:0.2rem;">Providers nearby who can't deliver directly</p>
+                </div>
+
+                <div class="delivery-requests">
+                    <div class="req-card">
+                        <div class="req-route">
+                            <div class="r-point"><span>A</span> Green Grocery (2km away)</div>
+                            <div class="r-divider"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                            <div class="r-point"><span>B</span> Hope Orphanage (5km total trip)</div>
+                        </div>
+                        <div class="req-details">
+                            <p><strong>Cargo:</strong> 15kg Raw Vegetables</p>
+                            <p><strong>Vehicle Required:</strong> Hatchback or larger</p>
+                        </div>
+                        <button class="btn btn-outline-orange w-100 mt-3 accept-req-btn">Accept Delivery</button>
+                    </div>
+
+                    <div class="req-card">
+                        <div class="req-route">
+                            <div class="r-point"><span>A</span> Wedding Hall (1km away)</div>
+                            <div class="r-divider"><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                            <div class="r-point"><span>B</span> Night Shelter (3km total trip)</div>
+                        </div>
+                        <div class="req-details">
+                            <p><strong>Cargo:</strong> 100 Buffet Plates (Cooked Food)</p>
+                            <p><strong>Vehicle Required:</strong> Van or large SUV (Spill-proof)</p>
+                        </div>
+                        <button class="btn btn-outline-orange w-100 mt-3 accept-req-btn">Accept Delivery</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Profile, Leaderboard, Training -->
+            <div class="right-col">
+                
+                <!-- Vehicle & Registration Status -->
+                <div class="card mb-4 profile-setup">
+                    <h3 class="section-title-sm" style="border:none; margin:0;"><i class="fa-solid fa-motorcycle text-orange"></i> Your Vehicle</h3>
+                    <div class="vehicle-info mt-3">
+                        <div class="vehicle-icon-box"><i class="fa-solid fa-car-side"></i></div>
+                        <div>
+                            <h4>Honda City (Sedan)</h4>
+                            <p style="font-family:monospace; color:var(--text-light); margin-top:0.2rem;">MH-12-AB-1234</p>
+                        </div>
+                        <button class="icon-btn edit-btn"><i class="fa-solid fa-pen"></i></button>
+                    </div>
+                    <div class="verification-status mt-3">
+                        <i class="fa-solid fa-circle-check text-green"></i> Background Check & License Verified
+                    </div>
+                </div>
+
+                <!-- Leaderboard -->
+                <div class="card mb-4 px-0 pb-0 overflow-hidden">
+                    <div style="padding: 1.5rem 1.5rem 0.5rem 1.5rem;">
+                        <h3 class="section-title-sm" style="border:none; margin:0;"><i class="fa-solid fa-trophy" style="color:#ECC94B;"></i> Top Volunteers</h3>
+                        <p class="text-light text-xs mt-1">Community rankings for this month</p>
+                    </div>
+                    
+                    <div class="leaderboard mt-2">
+                        <div class="lb-item rank-gold">
+                            <div class="lb-rank">1</div>
+                            <img src="https://ui-avatars.com/api/?name=Amit+K&background=ECC94B&color=fff" alt="">
+                            <div class="lb-name">Amit Kumar</div>
+                            <div class="lb-score">185 km</div>
+                        </div>
+                        <div class="lb-item rank-silver">
+                            <div class="lb-rank">2</div>
+                            <img src="https://ui-avatars.com/api/?name=Priya+M&background=E2E8F0&color=4A5568" alt="">
+                            <div class="lb-name">Priya M.</div>
+                            <div class="lb-score">142 km</div>
+                        </div>
+                        <div class="lb-item rank-bronze active-user">
+                            <div class="lb-rank">3</div>
+                            <img src="https://ui-avatars.com/api/?name=Rahul+D&background=ED8936&color=fff" alt="">
+                            <div class="lb-name">Rahul D. (You)</div>
+                            <div class="lb-score">124 km</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Training & Safety -->
+                <div class="card bg-green-light" style="border: 1px solid rgba(46,139,87,0.2);">
+                    <h3 class="section-title-sm" style="border:none; margin:0; color:var(--primary-green);"><i class="fa-solid fa-shield-halved"></i> Safety & Training Links</h3>
+                    <ul class="training-list mt-3">
+                        <li>
+                            <div class="t-icon"><i class="fa-solid fa-temperature-arrow-down"></i></div>
+                            <div class="t-info">
+                                <h4>Safe Transport Temps</h4>
+                                <a href="#">Read Guide <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="t-icon"><i class="fa-solid fa-box-open"></i></div>
+                            <div class="t-info">
+                                <h4>Spill-proof Packaging</h4>
+                                <a href="#">Watch Video <i class="fa-solid fa-circle-play"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="t-icon"><i class="fa-solid fa-hands-bubbles"></i></div>
+                            <div class="t-info">
+                                <h4>Sanitation Standard Operating Procedure</h4>
+                                <a href="#">Review Rules <i class="fa-solid fa-arrow-right"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Certificate Modal -->
+    <div class="modal-overlay" id="certModal">
+        <div class="modal-card cert-card">
+            <div class="modal-header" style="border-bottom:none; justify-content:flex-end; padding-bottom:0;">
+                <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body text-center" style="padding: 1rem 3rem 3rem;">
+                <div class="cert-border">
+                    <i class="fa-solid fa-award cert-icon"></i>
+                    <h2 style="font-family: 'Georgia', serif; font-size: 2rem; color: var(--text-dark); margin-bottom: 0.5rem; margin-top: 1rem;">Certificate of Appreciation</h2>
+                    <p class="text-light mb-4 text-sm text-uppercase" style="letter-spacing:2px;">Awarded by AnnSetu Foundation</p>
+                    
+                    <p style="font-size:1.1rem; color:var(--text-dark);">This certificate is proudly presented to</p>
+                    <h3 style="font-family: 'Georgia', serif; font-size: 2.2rem; color: var(--primary-green); margin: 1rem 0;">Rahul D.</h3>
+                    <p style="font-size:1.1rem; color:var(--text-dark); line-height: 1.6;">For outstanding dedication to bridging hunger with hope. You have driven over <strong>124 km</strong> and completed <strong>42 food rescue deliveries</strong>.</p>
+                    
+                    <div class="cert-footer mt-5">
+                        <div class="signature">
+                            <span class="sign-font">AnnSetu Admin</span>
+                            <div class="line"></div>
+                            <span>Platform Director</span>
+                        </div>
+                        <div class="seal">
+                            <i class="fa-solid fa-leaf"></i>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary w-100 mt-4" style="justify-content:center;"><i class="fa-solid fa-download"></i> Download PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="volunteer-dashboard.js"></script>
+</body>
+</html>

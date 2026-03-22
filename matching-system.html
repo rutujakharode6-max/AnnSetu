@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching & Notification Center | AnnSetu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="matching-system.css">
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i> Ann<span style="color: var(--primary-green);">Setu</span>
+            </a>
+            <div class="nav-right" style="display:flex; align-items:center;">
+                <span class="system-badge"><i class="fa-solid fa-microchip"></i> AI Engine Active</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pt-100 pb-5">
+        <!-- Item Header -->
+        <div class="item-header-card card">
+            <div class="item-info">
+                <span class="category-tag"><i class="fa-solid fa-bread-slice"></i> Baked Goods</span>
+                <h2>50 Assorted Pastries & Bread</h2>
+                <p>Posted by <strong>Fresh Bakers</strong> • 15 mins ago</p>
+            </div>
+            <div class="item-stats text-right">
+                <div class="stat-box">
+                    <span>Demand</span>
+                    <strong style="color: var(--primary-orange);">High (3 Requests)</strong>
+                </div>
+                <div class="stat-box">
+                    <span>Quantity</span>
+                    <strong>50 Servings</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="match-grid mt-4">
+            <!-- LEFT COLUMN: Matching & Queue -->
+            <div class="left-col">
+                <div class="card h-100">
+                    <div class="card-header-flex">
+                        <h3 style="margin: 0; display:flex; gap: 0.5rem; align-items:center;"><i class="fa-solid fa-ranking-star" style="color: var(--primary-green);"></i> Smart Priority Queue</h3>
+                        <span class="badge badge-pulse">Live Matching</span>
+                    </div>
+                    <p class="text-light mb-4 text-sm" style="margin-top:0.5rem;">Our algorithm ranks receivers based on verification status, urgency, distance, and past fulfillment rates.</p>
+
+                    <!-- Queue List -->
+                    <div class="priority-list">
+                        <!-- Rank 1 -->
+                        <div class="priority-item rank-1">
+                            <div class="rank-badge">#1</div>
+                            <div class="info">
+                                <h4>Hope Foundation</h4>
+                                <div class="tags">
+                                    <span class="tag-verified"><i class="fa-solid fa-certificate"></i> Verified NGO</span>
+                                    <span class="tag-dist">2.5 km away</span>
+                                </div>
+                            </div>
+                            <div class="action flex-col" style="align-items:flex-end;">
+                                <span class="priority-high">Priority: HIGH</span>
+                                <button class="btn btn-green sm assign-btn">Assign Food</button>
+                            </div>
+                        </div>
+
+                        <!-- Rank 2 -->
+                        <div class="priority-item">
+                            <div class="rank-badge bg-gray">#2</div>
+                            <div class="info">
+                                <h4>Sharma Family</h4>
+                                <div class="tags">
+                                    <span class="tag-family"><i class="fa-solid fa-house-chimney-user"></i> Family in Need</span>
+                                    <span class="tag-dist">3.1 km away</span>
+                                </div>
+                            </div>
+                            <div class="action flex-col" style="align-items:flex-end; gap:0.5rem;">
+                                <span class="priority-med">Priority: MED</span>
+                                <span class="status-waiting">On Waitlist</span>
+                            </div>
+                        </div>
+
+                        <!-- Rank 3 -->
+                        <div class="priority-item">
+                            <div class="rank-badge bg-gray">#3</div>
+                            <div class="info">
+                                <h4>City Shelter</h4>
+                                <div class="tags">
+                                    <span class="tag-ngo"><i class="fa-solid fa-building-ngo"></i> NGO</span>
+                                    <span class="tag-dist">4.5 km away</span>
+                                </div>
+                            </div>
+                            <div class="action flex-col" style="align-items:flex-end; gap:0.5rem;">
+                                <span class="priority-med">Priority: MED</span>
+                                <span class="status-waiting">On Waitlist</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="waitlist-alert mt-4">
+                        <i class="fa-solid fa-circle-info" style="color: var(--primary-orange);"></i> <strong>Demand Exceeds Supply:</strong> Unassigned receivers will be kept on the waitlist and notified immediately if the primary receiver cancels or if similar food is posted nearby.
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Logs & Expiry -->
+            <div class="right-col">
+                
+                <!-- Notifications Log -->
+                <div class="card mb-4" style="padding: 1.5rem;">
+                    <h3 style="margin: 0; display:flex; gap:0.5rem; align-items:center;"><i class="fa-solid fa-satellite-dish" style="color: var(--primary-orange);"></i> Broadcast Status</h3>
+                    <div class="log-box mt-3">
+                        <div class="log-item success">
+                            <i class="fa-solid fa-check"></i> <span><strong>Push Notification:</strong> Sent to 14 nearby receivers</span>
+                        </div>
+                        <div class="log-item success">
+                            <i class="fa-solid fa-check"></i> <span><strong>SMS Alert:</strong> Sent to priority organizations (3 delivered)</span>
+                        </div>
+                        <div class="log-item pending">
+                            <i class="fa-solid fa-spinner fa-spin"></i> <span><strong>Email Digest:</strong> Queued for daily summary updates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expiry Monitor -->
+                <div class="card expiry-card" style="padding: 1.5rem;">
+                    <div class="card-header-flex mb-2">
+                        <h3 style="margin: 0; display:flex; gap:0.5rem; align-items:center;"><i class="fa-regular fa-clock text-danger"></i> Expiry Monitor</h3>
+                        <span id="countdownTimer" class="timer-badge">02:30:00</span>
+                    </div>
+                    
+                    <div class="progress-container mt-3">
+                        <div class="progress-bar expiry-progress" style="width: 40%;"></div>
+                    </div>
+                    <div class="flex-between text-xs text-light mt-1 mb-4" style="margin-bottom: 1.5rem;">
+                        <span>Posted</span>
+                        <span>Expiry</span>
+                    </div>
+
+                    <div class="expiry-actions">
+                        <button class="btn btn-outline-danger w-100" id="triggerExpiryBtn" style="justify-content:center;">Simulate 2-Hour Warning</button>
+                    </div>
+                </div>
+
+                <!-- Feedback Trigger Simulation -->
+                <div class="card mt-4 bg-green-light" style="padding: 1.5rem; border: 1px solid rgba(46,139,87,0.2); background: rgba(46,139,87,0.05);">
+                    <h3 style="color: var(--primary-green); margin:0; display:flex; gap:0.5rem; align-items:center;"><i class="fa-solid fa-handshake"></i> Transfer Completed?</h3>
+                    <p class="text-sm text-dark" style="margin: 0.5rem 0 1rem 0;">Simulate a successful pickup to collect feedback from the receiver.</p>
+                    <button class="btn btn-green w-100" id="triggerFeedbackBtn" style="justify-content:center; border:none; color:white; font-weight:600; font-family:inherit; cursor:pointer;">Trigger Feedback Form</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Feedback Collection Modal -->
+    <div class="modal-overlay" id="feedbackModal">
+        <div class="modal-card">
+            <div class="modal-header" style="padding: 1.5rem; border-bottom: 1px solid #E2E8F0; display:flex; justify-content:space-between; align-items:center;">
+                <h2 style="margin:0; font-size:1.4rem; display:flex; gap:0.5rem; align-items:center;"><i class="fa-solid fa-star" style="color: var(--primary-orange);"></i> Rate Experience</h2>
+                <button class="close-modal" style="background:none; border:none; font-size:1.2rem; cursor:pointer; color:var(--text-light);"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body text-center" style="padding: 2rem;">
+                <p class="mb-4" style="margin-top:0;">You recently picked up <strong>50 Assorted Pastries</strong> from <strong>Fresh Bakers</strong>. How was the food quality and accuracy?</p>
+                
+                <div class="star-rating mb-4" style="margin-bottom: 2rem;">
+                    <i class="fa-regular fa-star" data-rating="1"></i>
+                    <i class="fa-regular fa-star" data-rating="2"></i>
+                    <i class="fa-regular fa-star" data-rating="3"></i>
+                    <i class="fa-regular fa-star" data-rating="4"></i>
+                    <i class="fa-regular fa-star" data-rating="5"></i>
+                </div>
+
+                <div class="feedback-options mb-4" style="margin-bottom: 1.5rem; display:flex; justify-content:center; gap:1.5rem;">
+                    <label class="checkbox-container sm" style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+                        <input type="checkbox" checked style="width:16px; height:16px; accent-color:var(--primary-green);">
+                        <span class="terms-text text-sm">Accurate Quantity</span>
+                    </label>
+                    <label class="checkbox-container sm" style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+                        <input type="checkbox" checked style="width:16px; height:16px; accent-color:var(--primary-green);">
+                        <span class="terms-text text-sm">Packaged Safely</span>
+                    </label>
+                </div>
+
+                <textarea class="form-control mb-4" rows="3" placeholder="Leave a review or note of thanks..." style="margin-bottom: 1.5rem; width:100%; border-radius:10px; border:1px solid #E2E8F0; padding:1rem; font-family:inherit;"></textarea>
+
+                <button class="btn btn-primary w-100" id="submitFeedbackBtn" style="justify-content:center; border:none; color:white; cursor:pointer;">Submit Feedback</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="matching-system.js"></script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receiver Dashboard | AnnSetu</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="receiver-dashboard.css">
+</head>
+<body class="bg-light dashboard-body">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i> Ann<span style="color: var(--primary-green);">Setu</span>
+            </a>
+            
+            <div class="nav-right">
+                <div class="notification-wrapper">
+                    <i class="fa-regular fa-bell" style="font-size: 1.4rem; color: var(--text-dark);"></i>
+                    <span class="badge" id="notifBadge">1</span>
+                </div>
+                <div class="user-profile receiver-profile">
+                    <img src="https://ui-avatars.com/api/?name=Helping+Hands&background=2E8B57&color=fff" alt="Profile">
+                    <span style="color: var(--text-dark); font-weight: 600;">Helping Hands NGO</span>
+                    <i class="fa-solid fa-chevron-down" style="color: var(--text-light); font-size: 0.8rem;"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container pt-100">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <!-- Emergency Request Button -->
+            <button class="btn btn-emergency w-100" id="emergencyBtn">
+                <i class="fa-solid fa-triangle-exclamation fa-beat-fade"></i> Urgent Food Request
+            </button>
+
+            <!-- Filters -->
+            <div class="card mt-4 p-4">
+                <h3 class="section-title-sm"><i class="fa-solid fa-filter text-green"></i> Filters</h3>
+                
+                <div class="filter-group">
+                    <label>Food Category</label>
+                    <select class="form-control">
+                        <option value="all">All Categories</option>
+                        <option value="cooked">Cooked Meals</option>
+                        <option value="raw">Raw Ingredients</option>
+                        <option value="baked">Baked Goods</option>
+                        <option value="packaged">Packaged Items</option>
+                    </select>
+                </div>
+
+                <div class="filter-group mt-3">
+                    <label>Max Distance: <span id="distVal">5</span> km</label>
+                    <input type="range" class="form-range" min="1" max="20" value="5" id="distRange">
+                </div>
+
+                <div class="filter-group mt-3">
+                    <label>Pickup Time</label>
+                    <select class="form-control">
+                        <option value="any">Any Time</option>
+                        <option value="morning">Morning (8AM - 12PM)</option>
+                        <option value="afternoon">Afternoon (12PM - 4PM)</option>
+                        <option value="evening">Evening (4PM - 9PM)</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-outline-green w-100 mt-3" style="justify-content:center;">Apply Filters</button>
+            </div>
+
+            <!-- Queue Management -->
+            <div class="card mt-4 p-4">
+                <h3 class="section-title-sm"><i class="fa-solid fa-list-check text-green"></i> Queue Management</h3>
+                <div class="queue-list">
+                    <div class="queue-item confirmed">
+                        <span class="status-dot green"></span>
+                        <div class="queue-info">
+                            <h4>Assorted Pastries (50)</h4>
+                            <p>Fresh Bakers • <span class="text-green">Approved Pickup</span></p>
+                        </div>
+                        <button class="nav-btn" title="Get Directions"><i class="fa-solid fa-location-arrow"></i></button>
+                    </div>
+                    <div class="queue-item pending">
+                        <span class="status-dot orange"></span>
+                        <div class="queue-info">
+                            <h4>Veg Biryani (20)</h4>
+                            <p>Spice Kitchen • <span class="text-orange">Pending Approval</span></p>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="view-history mt-3">View Full History & Preferences <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Map View Container -->
+            <div class="map-container card">
+                <div class="map-header">
+                    <h2><i class="fa-solid fa-map-location-dot text-green"></i> Nearby Donations</h2>
+                    <div class="map-toggles">
+                        <button class="toggle-btn active"><i class="fa-solid fa-map"></i> Map</button>
+                        <button class="toggle-btn"><i class="fa-solid fa-list"></i> List</button>
+                    </div>
+                </div>
+                <!-- Simulated Interactive Map -->
+                <div class="map-view">
+                    <!-- Map background pattern/image -->
+                    <div class="map-pin" style="top: 30%; left: 40%;">
+                        <div class="pin-marker orange"><i class="fa-solid fa-box-open"></i></div>
+                        <div class="pin-popup">
+                            <h4>Fresh Bakers</h4>
+                            <p>50 Assorted Pastries (2.5 km)</p>
+                            <button class="btn-link">View</button>
+                        </div>
+                    </div>
+                    <div class="map-pin" style="top: 60%; left: 70%;">
+                        <div class="pin-marker orange"><i class="fa-solid fa-box-open"></i></div>
+                        <div class="pin-popup show">
+                            <h4>Spice Kitchen</h4>
+                            <p>20 Veg Biryani Plates (4.1 km)</p>
+                            <button class="btn-link">View</button>
+                        </div>
+                    </div>
+                    <div class="map-pin user-location" style="top: 50%; left: 50%;">
+                        <div class="pin-marker blue"><i class="fa-solid fa-location-crosshairs"></i></div>
+                        <div class="ripple"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Listings -->
+            <div class="listings-header mt-5">
+                <h3 style="font-size: 1.4rem;">Available Near You</h3>
+                <span class="text-light">Showing results within 5km</span>
+            </div>
+
+            <div class="listings-grid">
+                <!-- Listing 1 -->
+                <div class="listing-card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        <span class="freshness-badge fresh">Very Fresh</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span class="category"><i class="fa-solid fa-bread-slice"></i> Baked Goods</span>
+                            <span class="distance"><i class="fa-solid fa-location-dot"></i> 2.5 km</span>
+                        </div>
+                        <h4 class="title">50 Assorted Pastries & Bread</h4>
+                        <p class="provider">By <strong>Fresh Bakers</strong></p>
+                        
+                        <div class="details-grid">
+                            <div>
+                                <span>Quantity:</span>
+                                <strong>50 Servings</strong>
+                            </div>
+                            <div>
+                                <span>Pickup Window:</span>
+                                <strong>6:00 PM - 8:00 PM</strong>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-green w-100 request-btn"><i class="fa-solid fa-hand-holding-hand"></i> Request Food</button>
+                    </div>
+                </div>
+
+                <!-- Listing 2 -->
+                <div class="listing-card">
+                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1563379926898-05f4575a45d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+                        <span class="freshness-badge moderate">Good for 1 day</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="meta">
+                            <span class="category"><i class="fa-solid fa-bowl-rice"></i> Cooked Meals</span>
+                            <span class="distance"><i class="fa-solid fa-location-dot"></i> 4.1 km</span>
+                        </div>
+                        <h4 class="title">Vegetable Biryani & Curries</h4>
+                        <p class="provider">By <strong>Spice Kitchen Restaurant</strong></p>
+                        
+                        <div class="details-grid">
+                            <div>
+                                <span>Quantity:</span>
+                                <strong>20 Plates</strong>
+                            </div>
+                            <div>
+                                <span>Pickup Window:</span>
+                                <strong>10:00 PM - 11:30 PM</strong>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-green w-100 request-btn"><i class="fa-solid fa-hand-holding-hand"></i> Request Food</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Emergency Modal -->
+    <div class="modal-overlay" id="emergencyModal">
+        <div class="modal-card">
+            <div class="modal-header emergency-header">
+                <h2><i class="fa-solid fa-triangle-exclamation"></i> Emergency Food Request</h2>
+                <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="alert-text">Use this only for urgent situations (e.g., natural disasters, sudden large influx of refugees). This will send a high-priority alert to all donors within a 15km radius.</p>
+                <form id="emergencyForm">
+                    <div class="form-group mb-3">
+                        <label style="font-weight: 600; margin-bottom: 0.5rem; display:block;">Reason for Emergency *</label>
+                        <input type="text" class="form-control" placeholder="E.g. Flood relief camp, 200+ people" required>
+                    </div>
+                    <div class="form-row mb-3" style="display:flex; gap:1rem;">
+                        <div class="form-group flex-1">
+                            <label style="font-weight: 600; margin-bottom: 0.5rem; display:block;">Required Meals *</label>
+                            <input type="number" class="form-control" placeholder="E.g. 500" required>
+                        </div>
+                        <div class="form-group flex-1">
+                            <label style="font-weight: 600; margin-bottom: 0.5rem; display:block;">Required By *</label>
+                            <input type="time" class="form-control" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-emergency w-100"><i class="fa-solid fa-satellite-dish fa-beat"></i> Broadcast Emergency Alert</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="receiver-dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Dashboard | AnnSetu</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="bg-light dashboard-body">
+    <!-- Logged-in Navbar -->
+    <nav class="navbar dashboard-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i> Ann<span>Setu</span>
+            </a>
+            
+            <div class="nav-right">
+                <div class="notification-wrapper">
+                    <i class="fa-regular fa-bell" style="font-size: 1.4rem; color: var(--text-dark);"></i>
+                    <span class="badge" id="notifBadge">3</span>
+                    <!-- Notification Dropdown -->
+                    <div class="notification-dropdown">
+                        <h4>Notifications</h4>
+                        <div class="notification-item unread">
+                            <div class="icon green"><i class="fa-solid fa-check"></i></div>
+                            <div>
+                                <p><strong>Helping Hands NGO</strong> accepted your 50 Pastries donation!</p>
+                                <span>Just now</span>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="icon orange"><i class="fa-solid fa-star"></i></div>
+                            <div>
+                                <p>You received a 5-star rating for your last donation.</p>
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item">
+                            <div class="icon bg-green-light"><i class="fa-solid fa-seedling text-green"></i></div>
+                            <div>
+                                <p>Monthly Impact Report is ready to view.</p>
+                                <span>Yesterday</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Fresh+Bakers&background=FF7B00&color=fff" alt="Profile">
+                    <span style="color: var(--text-dark); font-weight: 600;">Fresh Bakers</span>
+                    <i class="fa-solid fa-chevron-down" style="color: var(--text-light); font-size: 0.8rem;"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container pt-100">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-card">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Bakery" class="profile-bg">
+                <div class="profile-info">
+                    <img src="https://ui-avatars.com/api/?name=Fresh+Bakers&background=FF7B00&color=fff" alt="Logo" class="profile-logo">
+                    <h3>Fresh Bakers</h3>
+                    <p class="role-badge"><i class="fa-solid fa-store"></i> Bakery Provider</p>
+                    
+                    <div class="rating-display">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                        <span>4.8 (124 Reviews)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="impact-card">
+                <h3>Your Impact</h3>
+                <div class="impact-stats">
+                    <div class="stat">
+                        <div class="stat-icon-box bg-orange-light"><i class="fa-solid fa-box-open text-orange"></i></div>
+                        <div>
+                            <h4>145</h4>
+                            <p>Donations Completed</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-icon-box bg-green-light"><i class="fa-solid fa-users text-green"></i></div>
+                        <div>
+                            <h4>2,500+</h4>
+                            <p>Meals Provided</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-secondary w-100 mt-4 schedule-btn" style="border: 2px solid var(--primary-orange); color: var(--primary-orange); box-shadow: none;">
+                <i class="fa-solid fa-calendar-plus"></i> Schedule Recurring Donation
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Post Food Form -->
+            <div class="card post-food-card">
+                <div class="card-header">
+                    <h2><i class="fa-solid fa-hand-holding-heart text-orange"></i> Post Available Food</h2>
+                    <p>Quickly list excess food to notify nearby receivers instantly.</p>
+                </div>
+                <form id="postFoodForm" class="quick-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Food Type & Description</label>
+                            <input type="text" id="foodDesc" placeholder="e.g., 50 Assorted Pastries & Bread" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity (Servings/Kg)</label>
+                            <input type="number" id="foodQty" placeholder="50" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry / Best Before Time</label>
+                            <input type="datetime-local" id="foodExpiry" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Pickup Location</label>
+                            <input type="text" id="foodLoc" value="Fresh Bakers, Main Street, City" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <label class="checkbox-container sm">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="terms-text">Save as Recurring (Daily at this time)</span>
+                        </label>
+                        <button type="submit" class="btn btn-primary post-btn"><i class="fa-solid fa-paper-plane"></i> Post Food Now</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Active Donations -->
+            <div class="section-title">
+                <h3>Active Donations</h3>
+                <span class="badge badge-orange">2 Active</span>
+            </div>
+            
+            <div class="active-donations-grid">
+                <!-- Pending Card -->
+                <div class="donation-card status-pending">
+                    <div class="card-status status-text-orange">Pending Pickup</div>
+                    <h4>Vegetable Biryani & Curries</h4>
+                    <p class="qty"><i class="fa-solid fa-scale-balanced"></i> 30 Servings</p>
+                    <p class="time text-danger"><i class="fa-solid fa-clock"></i> Expires in 2 hours</p>
+                    <div class="card-action">
+                        <button class="btn btn-outline sm">Edit</button>
+                        <button class="btn btn-danger-outline sm">Cancel</button>
+                    </div>
+                </div>
+                
+                <!-- Accepted Card -->
+                <div class="donation-card status-accepted">
+                    <div class="card-status status-text-green">Accepted</div>
+                    <h4>Assorted Pastries</h4>
+                    <p class="qty"><i class="fa-solid fa-scale-balanced"></i> 50 Servings</p>
+                    <div class="receiver-info">
+                        <img src="https://ui-avatars.com/api/?name=Helping+Hands&background=2E8B57&color=fff" alt="NGO">
+                        <div>
+                            <p class="name">Helping Hands NGO</p>
+                            <p class="eta text-green">Arriving in 15 mins</p>
+                        </div>
+                        <button class="icon-btn" title="Contact Receiver"><i class="fa-solid fa-phone"></i></button>
+                    </div>
+                    <div class="card-action">
+                        <button class="btn btn-green w-100 confirm-btn">Mark as Handed Over</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History & Reviews -->
+            <div class="section-title mt-5">
+                <h3>Recent History & Reviews</h3>
+                <a href="#" class="view-all">View All</a>
+            </div>
+
+            <div class="history-list">
+                <div class="history-item">
+                    <div class="history-icon bg-green-light text-green">
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                    <div class="history-details">
+                        <h4>Mixed Breads and Cakes</h4>
+                        <p>Completed yesterday · <strong>Hope Foundation</strong></p>
+                    </div>
+                    <div class="history-impact">
+                        <span class="impact-badge"><i class="fa-solid fa-bowl-food text-orange"></i> 40 Meals</span>
+                    </div>
+                    <div class="history-review">
+                        <div class="stars text-orange">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p style="color: #666; font-style: italic;">"Always fresh food and neatly packed!"</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="dashboard.js"></script>
+</body>
+</html>

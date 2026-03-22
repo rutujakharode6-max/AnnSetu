@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trust & Safety | AnnSetu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="trust-center.css">
+</head>
+<body class="bg-light dashboard-body">
+    <!-- Navbar -->
+    <nav class="navbar dashboard-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-leaf"></i> Ann<span style="color: var(--primary-green);">Setu</span>
+            </a>
+            <div class="nav-right" style="display:flex; align-items:center; gap: 1.5rem;">
+                <span class="trust-badge"><i class="fa-solid fa-shield-check"></i> Account Verified</span>
+                <div class="user-profile">
+                    <img src="https://ui-avatars.com/api/?name=Fresh+Bakers&background=FF7B00&color=fff" alt="Profile">
+                    <span style="color: var(--text-dark); font-weight: 600;">Fresh Bakers</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pt-100 pb-5">
+        
+        <div class="header-section mb-4">
+            <h2 style="font-size: 2.2rem; display:flex; align-items:center; gap:0.6rem;">
+                <i class="fa-solid fa-shield-halved text-green"></i> Trust & Safety Hub
+            </h2>
+            <p class="text-light" style="margin-top: 0.3rem;">Manage your verifications, safety compliance, and reputation securely.</p>
+        </div>
+
+        <div class="trust-grid">
+            
+            <!-- LEFT COLUMN -->
+            <div class="left-col">
+                
+                <!-- Verification Section -->
+                <div class="card mb-4">
+                    <div class="card-header-flex mb-3">
+                        <h3 class="section-title-sm" style="margin:0;"><i class="fa-solid fa-id-card text-orange"></i> Verification & Compliance</h3>
+                        <span class="progress-text text-sm font-weight-bold" style="color:var(--primary-green);">1/2 Completed</span>
+                    </div>
+
+                    <div class="verify-block verified">
+                        <div class="v-icon"><i class="fa-regular fa-id-card"></i></div>
+                        <div class="v-info">
+                            <h4>Govt. ID Verification</h4>
+                            <p>Aadhaar / PAN verification securely completed.</p>
+                        </div>
+                        <div class="v-status">
+                            <i class="fa-solid fa-circle-check"></i> Verified
+                        </div>
+                    </div>
+
+                    <div class="verify-block pending mt-3">
+                        <div class="v-icon"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="v-info">
+                            <h4>Food Safety Certification (FSSAI)</h4>
+                            <p>Required for restaurants to assure hygiene standards.</p>
+                            <!-- Upload Box within pending block -->
+                            <div class="file-upload-sm mt-3" id="fssaiUpload">
+                                <input type="file" id="certFile" accept=".pdf,.jpg,.png">
+                                <div class="upload-content text-center">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <span class="text-sm font-weight-bold">Click to upload FSSAI License</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="v-status">
+                            <span class="badge badge-orange">Action Required</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Incident Reporting -->
+                <div class="card mb-4">
+                    <div class="card-header-flex mb-3">
+                        <h3 class="section-title-sm" style="margin:0; color:#E53E3E;"><i class="fa-solid fa-flag"></i> Report Incident / Flag Listing</h3>
+                    </div>
+                    <p class="text-sm text-light mb-4">Help us keep AnnSetu safe. Report unprofessional behavior, spoiled food, or inappropriate listings. Reports are 100% confidential.</p>
+                    
+                    <form id="incidentForm">
+                        <div class="form-row flex-row mb-3">
+                            <div class="form-group flex-1">
+                                <label>Report Type *</label>
+                                <select class="form-control" required>
+                                    <option value="" disabled selected>Select an issue...</option>
+                                    <option value="food_quality">Spoiled or Unsafe Food</option>
+                                    <option value="no_show">No-show (Receiver/Volunteer)</option>
+                                    <option value="behavior">Inappropriate Behavior / Rude</option>
+                                    <option value="fake_listing">Fake or Spam Listing</option>
+                                </select>
+                            </div>
+                            <div class="form-group flex-1">
+                                <label>Related Transaction ID (Optional)</label>
+                                <input type="text" class="form-control" placeholder="E.g., #TRX-98231">
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Description of Incident *</label>
+                            <textarea class="form-control" rows="3" placeholder="Please provide specific details to help our Trust & Safety team investigate..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-outline-danger w-100" style="justify-content:center;"><i class="fa-solid fa-paper-plane"></i> Submit Confidential Report</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="right-col">
+                
+                <!-- Reputation System -->
+                <div class="card mb-4">
+                    <h3 class="section-title-sm mb-3"><i class="fa-solid fa-star" style="color:#ECC94B;"></i> Your Reputation Score</h3>
+                    
+                    <div class="reputation-header text-center mb-4">
+                        <h1 style="font-size: 3rem; color:var(--text-dark); margin-bottom:0.2rem;">4.8</h1>
+                        <div class="stars mb-1" style="color:#ECC94B; font-size:1.2rem;">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                        <p class="text-xs text-light text-uppercase font-weight-bold">Based on 124 Reviews</p>
+                    </div>
+
+                    <div class="review-bars">
+                        <div class="r-bar-item">
+                            <span>Quality</span>
+                            <div class="r-bar-track"><div class="r-bar-fill bg-green" style="width: 96%;"></div></div>
+                            <span>4.9</span>
+                        </div>
+                        <div class="r-bar-item mt-2">
+                            <span>Accuracy</span>
+                            <div class="r-bar-track"><div class="r-bar-fill bg-green" style="width: 90%;"></div></div>
+                            <span>4.7</span>
+                        </div>
+                        <div class="r-bar-item mt-2">
+                            <span>Communication</span>
+                            <div class="r-bar-track"><div class="r-bar-fill bg-green" style="width: 94%;"></div></div>
+                            <span>4.8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quality Assurance & Guidelines -->
+                <div class="card bg-green-light" style="border: 1px solid rgba(46,139,87,0.2);">
+                    <h3 class="section-title-sm mb-3 text-green" style="margin-top:0;"><i class="fa-solid fa-clipboard-check"></i> Quality Assurance Checklist</h3>
+                    <p class="text-sm text-dark mb-3">Before a listing is broadcasted on AnnSetu, donors are actively prompted to confirm these mandatory safety protocols. Familiarize yourself here:</p>
+                    
+                    <div class="qa-checklist">
+                        <label class="checkbox-container sm">
+                            <input type="checkbox" checked disabled>
+                            <span class="checkmark"></span>
+                            <span class="terms-text text-sm">Food maintained safely below 5°C or above 60°C contexts.</span>
+                        </label>
+                        <label class="checkbox-container sm mt-2">
+                            <input type="checkbox" checked disabled>
+                            <span class="checkmark"></span>
+                            <span class="terms-text text-sm">Clear labeling of common allergens (Nuts, Dairy, Gluten) provided.</span>
+                        </label>
+                        <label class="checkbox-container sm mt-2">
+                            <input type="checkbox" checked disabled>
+                            <span class="checkmark"></span>
+                            <span class="terms-text text-sm">Packaging is environmentally sealed and spill-proof.</span>
+                        </label>
+                    </div>
+
+                    <div class="liability-box mt-4">
+                        <h5 style="color:var(--text-dark); margin-top:0; font-size:1rem; margin-bottom:0.3rem;"><i class="fa-solid fa-scale-unbalanced text-orange"></i> Liability Waiver</h5>
+                        <p class="text-xs text-light" style="line-height:1.4; margin:0;">"Under the Good Samaritan Food Donation Act, donors providing food in verifiable good faith are protected from civil and criminal liability arising from the nature, age, packaging, or condition of the food. Platform use constitutes acknowledgment."</p>
+                    </div>
+                    
+                    <button class="btn btn-outline-green w-100 mt-4 sm" style="justify-content:center;"><i class="fa-solid fa-book-open"></i> Read Full Safety Guidelines</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <script src="trust-center.js"></script>
+</body>
+</html>

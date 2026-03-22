@@ -1,0 +1,335 @@
+/* Registration Page Specific Styles */
+.pt-100 {
+    padding-top: 100px; /* Accounts for fixed navbar */
+}
+
+.bg-light {
+    background-color: var(--gray-100);
+}
+
+.register-section {
+    min-height: calc(100vh - 80px); /* Fill remaining viewport */
+    display: flex;
+    justify-content: center;
+    padding-bottom: 4rem;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.register-header h2 {
+    font-size: 2.8rem;
+    color: var(--primary-green);
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.register-header p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* Role Selector */
+.role-selector {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.role-btn {
+    flex: 1;
+    background: var(--white);
+    border: 2px solid #E2E8F0;
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+}
+
+.role-btn i {
+    font-size: 2.5rem;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.role-btn h3 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 0.3rem;
+}
+
+.role-btn p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.role-btn:hover {
+    border-color: var(--primary-orange);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255,123,0,0.1);
+}
+
+.role-btn.active {
+    border-color: var(--primary-orange);
+    background: rgba(255,123,0,0.03);
+    box-shadow: 0 5px 20px rgba(255,123,0,0.15);
+}
+
+.role-btn.active i {
+    color: var(--primary-orange);
+}
+
+.role-btn[data-role="receiver"].active {
+    border-color: var(--primary-green);
+    background: rgba(46,139,87,0.03);
+    box-shadow: 0 5px 20px rgba(46,139,87,0.15);
+}
+
+.role-btn[data-role="receiver"].active i {
+    color: var(--primary-green);
+}
+
+/* Form Styles */
+.register-form-box {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group.row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.col-half {
+    flex: 1;
+}
+
+label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.input-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-light);
+}
+
+.input-icon input,
+.input-icon select {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: var(--transition);
+    background: var(--white);
+}
+
+.input-icon select {
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Add custom down arrow to select */
+.input-icon::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: 1.2rem;
+    color: var(--text-light);
+    pointer-events: none;
+}
+.input-icon:has(input)::after,
+.input-icon:has(input[type="file"])::after {
+    display: none;
+}
+
+.input-icon input:focus,
+.input-icon select:focus {
+    outline: none;
+    border-color: var(--primary-orange);
+    box-shadow: 0 0 0 3px rgba(255,123,0,0.1);
+}
+
+.input-action-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input-action-group .input-icon {
+    flex: 1;
+}
+
+.btn-verify {
+    background: var(--gray-100);
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 0 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-verify:hover {
+    background: var(--primary-green);
+    color: var(--white);
+    border-color: var(--primary-green);
+}
+
+/* Dynamic field animations */
+.dynamic-fields {
+    animation: fadeInSlide 0.3s ease-out;
+}
+
+@keyframes fadeInSlide {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Checkbox Terms */
+.terms-group {
+    margin: 2rem 0;
+    background: rgba(255, 123, 0, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-orange);
+    transition: var(--transition);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox-container input {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.checkmark {
+    width: 22px;
+    height: 22px;
+    background: var(--white);
+    border: 2px solid #CBD5E0;
+    border-radius: 5px;
+    display: inline-block;
+    position: relative;
+    margin-top: 2px;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background: var(--primary-orange);
+    border-color: var(--primary-orange);
+}
+
+.checkmark::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark::after {
+    display: block;
+}
+
+.terms-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.terms-text a {
+    color: var(--primary-orange);
+    text-decoration: underline;
+}
+
+.terms-text strong {
+    color: var(--text-dark);
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+    justify-content: center;
+}
+
+.login-prompt {
+    text-align: center;
+    margin-top: 2rem;
+    color: var(--text-light);
+}
+
+.login-prompt a {
+    color: var(--primary-green);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .register-form-box {
+        padding: 2rem 1.5rem;
+    }
+    .form-group.row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .role-selector {
+        flex-direction: column;
+    }
+}
